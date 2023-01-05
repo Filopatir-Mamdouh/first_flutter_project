@@ -1,3 +1,5 @@
+import 'package:first_flutter_project/Home.dart';
+import 'package:first_flutter_project/Profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,13 +28,15 @@ class Rootpage extends StatefulWidget {
 
 class _RootpageState extends State<Rootpage> {
   int currentepage = 0;
+  List<Widget> pages = [HomePage(), Profile()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter project"),
       ),
-      body: FloatingActionButton(
+      body: pages[currentepage],
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('Floating Action Button');
         },
@@ -43,6 +47,11 @@ class _RootpageState extends State<Rootpage> {
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
         ],
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentepage = index;
+          });
+        },
         selectedIndex: currentepage,
       ),
     );
