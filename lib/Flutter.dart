@@ -51,6 +51,58 @@ class _LearnFlutterState extends State<LearnFlutter> {
                 child: const Text('this is text ',
                     style: TextStyle(color: Colors.green)),
               )),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                primary: isSwitch ? Colors.cyan : Colors.green),
+            onPressed: () {
+              debugPrint('Elevated Button');
+            },
+            child: const Text('Elevated Button'),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              debugPrint('Outlined Button');
+            },
+            child: const Text('Outlined Button'),
+          ),
+          TextButton(
+            onPressed: () {
+              debugPrint('Text Button');
+            },
+            child: const Text('Text  Button'),
+          ),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              debugPrint('This is the row');
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Icon(Icons.local_fire_department,
+                    color: Colors.deepOrangeAccent),
+                Text('row wedget'),
+                Icon(Icons.local_fire_department,
+                    color: Colors.deepOrangeAccent),
+              ],
+            ),
+          ),
+          Switch(
+              value: isSwitch,
+              onChanged: (bool newBool) {
+                setState(() {
+                  isSwitch = newBool;
+                });
+              }),
+          Checkbox(
+              value: ischeck,
+              onChanged: (bool? newBool) {
+                setState(() {
+                  ischeck = newBool;
+                });
+              }),
+          Image.network(
+              'https://cdn-images-1.medium.com/max/1200/1*5-aoK8IBmXve5whBQM90GA.png')
         ])));
   }
 }
