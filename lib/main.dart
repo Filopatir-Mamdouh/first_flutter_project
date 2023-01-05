@@ -38,6 +38,13 @@ class _RootpageState extends State<Rootpage> {
         },
         child: const Icon(Icons.add),
       ),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+        selectedIndex: currentepage,
+      ),
     );
   }
 }
