@@ -32,6 +32,12 @@ class _RootpageState extends State<Rootpage> {
       appBar: AppBar(
         title: Text("Flutter project"),
       ),
+      body: FloatingActionButton(
+        onPressed: () {
+          debugPrint('Floating Action Button');
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
