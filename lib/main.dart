@@ -9,6 +9,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.cyan),
+      home: Rootpage(),
+    );
+  }
+}
+
+class Rootpage extends StatefulWidget {
+  const Rootpage({super.key});
+
+  @override
+  State<Rootpage> createState() => _RootpageState();
+}
+
+class _RootpageState extends State<Rootpage> {
+  int currentepage = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Flutter project"),
+      ),
+    );
   }
 }
